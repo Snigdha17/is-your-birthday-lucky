@@ -7,13 +7,17 @@ function IsBirthDayLucky() {
   var luckyNumber = document.querySelector("#lucky-number");
 
   if (luckyNumber.value && dateOfBirth.value) {
-    const dateOfBirthValue = dateOfBirth.value;
-    const sum = calculateSumOfDigits(dateOfBirthValue);
-
-    if (compareValues(sum, luckyNumber.value)) {
-      outputArea.innerText = "Your Birthday is Lucky!!🥳🥳";
+    if (luckyNumber.value < 0) {
+      outputArea.innerText = "Enter a positive lucky number";
     } else {
-      outputArea.innerText = "Your Birthday is Not Lucky!!🙁";
+      const dateOfBirthValue = dateOfBirth.value;
+      const sum = calculateSumOfDigits(dateOfBirthValue);
+
+      if (compareValues(sum, luckyNumber.value)) {
+        outputArea.innerText = "Your Birthday is Lucky!!🥳🥳";
+      } else {
+        outputArea.innerText = "Your Birthday is Not Lucky!🙁";
+      }
     }
   } else {
     outputArea.innerText = "Please enter both the date and the lucky number";
